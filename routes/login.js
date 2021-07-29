@@ -29,7 +29,7 @@ router.post('/', function(req, res, next) {
                 })
         })
 
-    res.json({message: 'success'})
+    // res.json({message: 'success'})
 })
 
 module.exports = router;
