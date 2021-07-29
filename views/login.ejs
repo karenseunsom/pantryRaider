@@ -30,29 +30,32 @@
         </div>
     </nav>
     <div class="container">
-        <div class="d-flex flex-column align-items-center">
-            <h2 class="my-5">Sign up</h2>
-            <form method="POST">
-                <div class="mb-3">
-                    <label for="firstName" class="form-label">First name</label>
-                    <input type="text" class="form-control" name="firstName" id="firstName">
-                </div>
-                <div class=mb-3>
-                    <label for="lastName" class="form-label">Last name</label>
-                    <input type="text" class="form-control" name="lastName" id="lastName">
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="text" class="form-control" name="email" id="email">
-                </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="text" class="form-control" name="password" id="password">
-                </div>
-                <button class="btn btn-warning" type="submit">Create Account</button>
-            </form>
+        <div class=" d-flex" style="width: 18rem;">
+            <div class="card-body">
+                <form>
+                    <div class="login">
+                        <div class="mb-3">
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp"
+                                placeholder="Enter email">
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-group">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" name="email" id="password" placeholder="Password">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-warning">Log in</button>
+                    </div>
+                    <button type="submit" class="btn btn-warning">Guest login</button>
+                </form>
+            </div>
         </div>
     </div>
 </body>
+
 
 </html>
