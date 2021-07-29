@@ -4,8 +4,9 @@ const db = require('../../models')
 
 // GET ingredients page 
 router.get('/ingredients', (req, res) => {
-    db.Ingredients.findAll()
-        .then((ingredient) => {
-            res.json(ingredient)
-        })
+    // db.Ingredients.findAll()
+    //     .then((ingredient) => {
+    //         res.json(ingredient)
+    //     })
+    res.json(db.Ingredients.findAll())
 })
