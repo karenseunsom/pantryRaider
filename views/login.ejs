@@ -14,7 +14,7 @@
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1">Pantry Raider</span>
-            <form class="d-flex align-items-center"method="POST">
+            <form class="d-flex align-items-end" method="POST">
                 <div class="mb-3">
                     <label for="email" class="form-label"></label>
                     <input type="text" class="form-control" name="email" id="email" placeholder="Email">
@@ -23,25 +23,33 @@
                     <label for="password" class="form-label"></label>
                     <input type="text" class="form-control" name="password" id="password" placeholder="Password">
                 </div>
-                <!-- <div class="mb-3"> -->
-                <button class="btn btn-primary" type="submit">Login</button>    
-                <!-- </div> -->
+                <div class="mb-3">
+                    <button class="btn btn-warning" type="submit">Login</button>    
+                </div>
             </form>
         </div>
     </nav>
     <div class="container">
-        <div class="d-flex flex-column justify-content-center align-items-center">
-            <h2 class="text-center my-5">Sign up</h2>
+        <div class="d-flex flex-column align-items-center">
+            <h2 class="my-5">Sign up</h2>
             <form method="POST">
                 <div class="mb-3">
-                    <label for="ceo_name" class="form-label">Email</label>
-                    <input type="text" class="form-control" name="ceo_name" id="ceo_name">
+                    <label for="firstName" class="form-label">First name</label>
+                    <input type="text" class="form-control" name="firstName" id="firstName">
                 </div>
                 <div class=mb-3>
-                    <label for="ceo_year" class="form-label">Password</label>
-                    <input type="text" class="form-control" name="ceo_year" id="ceo_year">
+                    <label for="lastName" class="form-label">Last name</label>
+                    <input type="text" class="form-control" name="lastName" id="lastName">
                 </div>
-                <button class="btn btn-primary" type="submit">Create Account</button>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" class="form-control" name="email" id="email">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="text" class="form-control" name="password" id="password">
+                </div>
+                <button class="btn btn-warning" type="submit">Create Account</button>
             </form>
         </div>
     </div>
