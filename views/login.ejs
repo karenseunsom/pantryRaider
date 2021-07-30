@@ -32,24 +32,23 @@
     <div class="container">
         <div class=" d-flex" style="width: 18rem;">
             <div class="card-body">
-                <form>
-                    <div class="login">
-                        <div class="mb-3">
-                            <div class="form-group">
-                                <label for="email" class="form-label">Email address</label>
-                                <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp"
-                                placeholder="Enter email">
-                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                            </div>
+                <form method="POST">
+                    <div class="mb-3">
+                        <%= JSON.stringify(messages) %> 
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp"
+                                placeholder="Enter email" required>
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                         </div>
-                        <div class="mb-3">
-                            <div class="form-group">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" name="email" id="password" placeholder="Password">
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-warning">Log in</button>
                     </div>
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-warning">Log in</button>
                     <button type="submit" class="btn btn-warning">Guest login</button>
                 </form>
             </div>

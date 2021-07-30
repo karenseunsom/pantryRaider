@@ -4,11 +4,11 @@ const bcrypt = require('bcrypt');
 const db = require('../models');
 
 // GET home page.
-router.get('/', function(req, res, next) {
+router.get('/signup', function(req, res, next) {
     res.render('signup', { title: 'Express' });
 });
 
-router.post('/', function(req, res, next) {
+router.post('/signup', function(req, res, next) {
     // console.log(req)
     // no need to check if values exist bc they are required forms
     // hash the password with bcrypt
