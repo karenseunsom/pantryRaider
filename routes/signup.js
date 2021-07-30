@@ -3,6 +3,7 @@ var router = express.Router();
 const bcrypt = require('bcrypt');
 const db = require('../models');
 
+
 // // GET home page.
 // router.get('/signup', function(req, res, next) {
 //     res.render('signup', { title: 'Express' });
@@ -30,6 +31,8 @@ const db = require('../models');
 //         })
 //     // res.json({message: 'success'})
 // })
+// GET home page.
+
 
 
 module.exports = router;
