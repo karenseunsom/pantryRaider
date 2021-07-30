@@ -12,24 +12,10 @@ module.exports = {
      * }], {});
     */
   return queryInterface.bulkInsert('Users', [{
-    firstName: 'Dummy',
-    lastName: 'One',
-    email: 'dummyone@email.com',
-    password: 'Gibberish',
-    createdAt: new Date(),
-    updatedAt: new Date()
-  }, {
-    firstName: 'Dommy',
-    lastName: 'Two',
-    email: 'dommytwo@email.com',
-    password: 'gibberish2',
-    createdAt: new Date(),
-    updatedAt: new Date()
-  }, {
-    firstName: 'Test',
-    lastName: 'Three',
-    email: 'testthree@email.com',
-    password: 'IDontfuckingknow',
+    firstName: 'Guest',
+    lastName: '',
+    email: 'guest@account.com',
+    password: '',
     createdAt: new Date(),
     updatedAt: new Date()
   }])
