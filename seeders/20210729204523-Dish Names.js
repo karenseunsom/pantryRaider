@@ -19,7 +19,7 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date()
     },{
-      name: '',
+      name: 'Roasted Chicken, Potatoes, Asparagus with Mornay',
       createdAt: new Date(),
       updatedAt: new Date()
     },{
