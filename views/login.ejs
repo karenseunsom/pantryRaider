@@ -9,6 +9,7 @@
         <%- include('partials/head') %>
     </title>
     <link rel="stylesheet" href="/stylesheets/loginStyles.css">
+    <script src="../public/javascript/"></script>
 </head>
 
 <body>
@@ -51,14 +52,16 @@
                     </div>
                     <div>
                         <button type="submit" class="btn btn-warning user-button">Log in</button>
-                        <button type="submit" class="btn btn-warning user-button" >Sign Up</button>
-                        <button type="submit" class="btn btn-warning user-button">Guest login</button>
                     </div>
                 </form>
             </div>
+            <form method="GET" class="other">
+                <button type="submit" class="btn btn-warning user-button"><a href="/users/signup" id="signup-button">Sign Up</a></button>
+            </form>
+            <form method="GET">
+                <button type="submit" class="btn btn-warning user-button"><a href="/" id="guest">Guest Login</a></button>
+            </form>
         </div>
     </div>
 </body>
-
-
 </html>
