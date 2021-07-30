@@ -1,0 +1,22 @@
+.card-body {
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+    /* color: red; */
+    align-items: center;
+
+}
+
+.content {
+    display: flex;
+    justify-self: center;
+    align-content: center;
+    align-items: center;
+}
+
+.login-form {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
