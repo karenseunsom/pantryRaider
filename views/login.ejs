@@ -15,17 +15,30 @@
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1">Pantry Raider</span>
+            <!-- <form class="d-flex align-items-end" method="POST">
+                <div class="mb-3">
+                    <label for="email" class="form-label"></label>
+                    <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label"></label>
+                    <input type="text" class="form-control" name="password" id="password" placeholder="Password">
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-warning" type="submit" onclick="location.href = '/public/index.html';">Login</button>    
+                </div>
+            </form> -->
         </div>
     </nav>
     <div class="container">
-        <div class=" d-flex" style="width: 18rem;">
+        <div class="d-flex login-form" style="width: 18rem;">
             <div class="card-body">
                 <form method="POST">
                     <div class="mb-3">
                         <%= JSON.stringify(messages) %> 
                         <div class="form-group">
                             <label for="email" class="form-label">Email address</label>
-                            <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp"
+                            <input type="email" class="form-control" name="email" id="email-login" aria-describedby="emailHelp"
                                 placeholder="Enter email" required>
                             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                         </div>
@@ -33,7 +46,7 @@
                     <div class="mb-3">
                         <div class="form-group">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+                            <input type="password" class="form-control" name="password" id="password-login" placeholder="Password" required>
                         </div>
                     </div>
                     <div>
