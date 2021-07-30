@@ -50,7 +50,7 @@ router.post('/signup', function (req, res, next) {
     bcrypt.hash(req.body.password, 10)
         .then((hash) => {
             // store user details
-            db.Users.create({
+            db.User.create({
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
                 email: req.body.email,
@@ -58,9 +58,9 @@ router.post('/signup', function (req, res, next) {
             })
                 // respond with success and rout to the search page 
                 .then((user) => {
-                    res.status(201).json(user)
+                    // res.status(201).json(user)
                     // todo redirect after submit to the results page
-                    // res.redirect('')
+                    res.redirect('/')
                 })
         })
     // res.json({message: 'success'})
