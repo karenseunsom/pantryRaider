@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Dishes', {
+    await queryInterface.createTable('Dish Names', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,10 +11,25 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
-      type: {
+      ingredient1: {
         type: Sequelize.STRING
       },
-      ingredients: {
+      ingredient2: {
+        type: Sequelize.STRING
+      },
+      ingredient3: {
+        type: Sequelize.STRING
+      },
+      ingredient4: {
+        type: Sequelize.STRING
+      },
+      ingredient5: {
+        type: Sequelize.STRING
+      },
+      ingredient6: {
+        type: Sequelize.STRING
+      },
+      ingredient7: {
         type: Sequelize.STRING
       },
       createdAt: {
