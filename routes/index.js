@@ -6,4 +6,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+// GET favorites page.
+router.get('/favorites', function(req, res, next) {
+  res.render('favorites', { title: 'Express' });
+});
+
 module.exports = router;
+
