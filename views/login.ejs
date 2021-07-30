@@ -8,6 +8,7 @@
     <title>
         <%- include('partials/head') %>
     </title>
+    <link rel="stylesheet" href="/stylesheets/loginStyles.css">
 </head>
 
 <body>
@@ -35,8 +36,11 @@
                             <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-warning">Log in</button>
-                    <button type="submit" class="btn btn-warning">Guest login</button>
+                    <div>
+                        <button type="submit" class="btn btn-warning user-button">Log in</button>
+                        <button type="submit" class="btn btn-warning user-button" >Sign Up</button>
+                        <button type="submit" class="btn btn-warning user-button">Guest login</button>
+                    </div>
                 </form>
             </div>
         </div>
