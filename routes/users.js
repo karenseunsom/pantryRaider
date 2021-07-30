@@ -1,7 +1,8 @@
 var express = require('express');
-const db = require('../models');
+const db = require('../models')
 var router = express.Router();
 const bcrypt = require('bcrypt');
+const session = require('express-session')
 
 /* GET users listing. */
 router.post('/', function (req, res, next) {
@@ -34,6 +35,7 @@ router.post('/login', function (req, res, next) {
                         req.flash('error', 'Wrong password')
                         res.redirect('/users/login')
                     }
+                    // console.log('test')
                 })
         })
 });
@@ -67,3 +69,12 @@ router.post('/signup', function (req, res, next) {
 })
 
 module.exports = router;
+
+
+
+
+
+// TODO SignUp button goes to /users/signup
+// link the button
+// TODO Guest button routes to / 
+    // ! with login being a guest account

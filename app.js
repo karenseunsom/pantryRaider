@@ -8,8 +8,7 @@ const checkAuth = require('./checkAuth');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-let signupRouter = require('./routes/signup');
-let loginRouter = require('./routes/login')
+
 
 var app = express();
 
@@ -37,7 +36,6 @@ app.use(flash())
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/signup', signupRouter)
-app.use('/login', loginRouter)
+
 
 module.exports = app;
