@@ -27,6 +27,13 @@ router.post('/login', function (req, res, next) {
         .then((user) => {
             console.log('found user')
             console.log(user)
+            // todo 
+                // * if user doesn't exist itll be a NULL 
+                // * make an if function that if NULL => incorrect user or/and password is incorrect
+            if (user === null) {
+                req.flash('error', "Email or/and password doesn't exist")
+                res.redirect('/users/login')
+            }
             bcrypt.compare(req.body.password, user.password)
                 .then((success) => {
                     if (success) {
@@ -42,6 +49,7 @@ router.post('/login', function (req, res, next) {
                     }
                     // console.log('test')
                 })
+            return
         })
 });
 
