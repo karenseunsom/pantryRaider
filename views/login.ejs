@@ -9,26 +9,13 @@
         <%- include('partials/head') %>
     </title>
     <link rel="stylesheet" href="/stylesheets/loginStyles.css">
-    <script src="../public/javascript/"></script>
+    <script src="/javascript/login.js" async defer></script>
 </head>
 
 <body>
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1">Pantry Raider</span>
-            <!-- <form class="d-flex align-items-end" method="POST">
-                <div class="mb-3">
-                    <label for="email" class="form-label"></label>
-                    <input type="text" class="form-control" name="email" id="email" placeholder="Email">
-                </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label"></label>
-                    <input type="text" class="form-control" name="password" id="password" placeholder="Password">
-                </div>
-                <div class="mb-3">
-                    <button class="btn btn-warning" type="submit" onclick="location.href = '/public/index.html';">Login</button>    
-                </div>
-            </form> -->
         </div>
     </nav>
     <div class="container">
@@ -52,15 +39,11 @@
                     </div>
                     <div>
                         <button type="submit" class="btn btn-warning user-button">Log in</button>
+                        <a href="/users/signup" class="btn btn-warning" tabindex="-1" role="button">Sign Up</a>
+                        <a href="/users/login/guest" class="btn btn-warning" tabindex="-1" role="button">Guest Login</a>
                     </div>
                 </form>
             </div>
-            <form method="GET" class="other">
-                <button type="submit" class="btn btn-warning user-button"><a href="/users/signup" id="signup-button">Sign Up</a></button>
-            </form>
-            <form method="GET">
-                <button type="submit" class="btn btn-warning user-button"><a href="/" id="guest">Guest Login</a></button>
-            </form>
         </div>
     </div>
 </body>

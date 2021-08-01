@@ -15,6 +15,7 @@ router.get('/login', function (req, res, next) {
         title: 'Express',
         messages: req.flash() 
     });
+    
 });
 
 router.post('/login', function (req, res, next) {
@@ -24,10 +25,14 @@ router.post('/login', function (req, res, next) {
         }
     })
         .then((user) => {
+            console.log('found user')
+            console.log(user)
             bcrypt.compare(req.body.password, user.password)
                 .then((success) => {
                     if (success) {
                         req.session.user = user
+                        console.log('!!!!!!!!!!!!!!!!!!!!')
+                        console.log(req.session.user)
                         // res.json({message: 'succesfully logged in'})
                         res.redirect('/')
                     } else {
@@ -40,8 +45,26 @@ router.post('/login', function (req, res, next) {
         })
 });
 
+// create a separate route for guest loging
+router.get('/login/guest', (req, res) => {
+    // find the guest user account
+    db.User.findOne({
+        where: {
+            email: "guest@account.com"
+        }
+    })
+        .then((user) => {
+            if (user) {
+                req.session.user = user
+                // console.log(req.session.user)
+                res.redirect('/')
+            }
+        })
+})
+
 // GET home page.
 router.get('/signup', function (req, res, next) {
+    // console.log('test')
     res.render('signup', { title: 'Express' });
 });
 
@@ -66,6 +89,23 @@ router.post('/signup', function (req, res, next) {
                 })
         })
     // res.json({message: 'success'})
+})
+
+router.get('/logout', (req, res) => {
+    // tell express user logged out 
+    req.session.user = null;
+    // send response of successfyl  
+})
+
+router.get('/:id/favorites', (req, res) => {
+    db.User.findOne({
+        where: {
+            id: req.session.User.id
+        }
+    })
+        .then((user) => {
+            res.redirect('/favorites')
+        })
 })
 
 module.exports = router;
