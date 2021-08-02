@@ -15,6 +15,7 @@ router.get('/login', function (req, res, next) {
         title: 'Express',
         messages: req.flash() 
     });
+    
 });
 
 router.post('/login', function (req, res, next) {
@@ -24,10 +25,23 @@ router.post('/login', function (req, res, next) {
         }
     })
         .then((user) => {
+            // console.log('found user')
+            // console.log(user)
+            // todo 
+                // * if user doesn't exist itll be a NULL 
+                // * make an if function that if NULL => incorrect user or/and password is incorrect
+            if (user === null) {
+                req.flash('error', "Email and/or password doesn't exist")
+                res.redirect('/users/login')
+            }
             bcrypt.compare(req.body.password, user.password)
                 .then((success) => {
                     if (success) {
                         req.session.user = user
+                        // sessionStorage.setItem("currentUser", req.session.user.id);
+                        // localStorage.setItem("currentUser", req.session.user.id)
+                        // console.log('!!!!!!!!!!!!!!!!!!!!')
+                        // console.log(req.session.user.id)
                         // res.json({message: 'succesfully logged in'})
                         res.redirect('/')
                     } else {
@@ -37,18 +51,44 @@ router.post('/login', function (req, res, next) {
                     }
                     // console.log('test')
                 })
+            return
         })
 });
 
+// create a separate route for guest loging
+router.get('/login/guest', (req, res) => {
+    // find the guest user account
+    db.User.findOne({
+        where: {
+            email: "guest@account.com"
+        }
+    })
+        .then((user) => {
+            if (user) {
+                req.session.user = user
+                // console.log(req.session.user)
+                res.redirect('/')
+            }
+        })
+})
+
 // GET home page.
 router.get('/signup', function (req, res, next) {
-    res.render('signup', { title: 'Express' });
+    // console.log('test')
+    res.render('signup', { 
+        title: 'Express',
+        messages: req.flash()
+    });
 });
 
 router.post('/signup', function (req, res, next) {
     // console.log(req)
     // no need to check if values exist bc they are required forms
     // hash the password with bcrypt
+    if (req.body.password != req.body.confirmPassword) {
+        req.flash('error', 'Passwords do not match')
+        res.redirect('/users/signup')
+    } else {
     bcrypt.hash(req.body.password, 10)
         .then((hash) => {
             // store user details
@@ -60,21 +100,31 @@ router.post('/signup', function (req, res, next) {
             })
                 // respond with success and rout to the search page 
                 .then((user) => {
+                    req.flash('success', 'Account successfully created')
                     // res.status(201).json(user)
                     // todo redirect after submit to the results page
-                    res.redirect('/')
+                    res.redirect('/users/signup')
                 })
         })
+    }
     // res.json({message: 'success'})
 })
 
+router.get('/logout', (req, res) => {
+    // tell express user logged out 
+    req.session.user = null;
+    // send response of successfully  
+})
+
+router.get('/:id/favorites', (req, res) => {
+    db.User.findOne({
+        where: {
+            id: req.session.User.id
+        }
+    })
+        .then((user) => {
+            res.redirect('/favorites')
+        })
+})
+
 module.exports = router;
-
-
-
-
-
-// TODO SignUp button goes to /users/signup
-// link the button
-// TODO Guest button routes to / 
-    // ! with login being a guest account
