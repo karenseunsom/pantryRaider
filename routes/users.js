@@ -31,7 +31,7 @@ router.post('/login', function (req, res, next) {
                 // * if user doesn't exist itll be a NULL 
                 // * make an if function that if NULL => incorrect user or/and password is incorrect
             if (user === null) {
-                req.flash('error', "Email or/and password doesn't exist")
+                req.flash('error', "Email and/or password doesn't exist")
                 res.redirect('/users/login')
             }
             bcrypt.compare(req.body.password, user.password)
@@ -75,13 +75,20 @@ router.get('/login/guest', (req, res) => {
 // GET home page.
 router.get('/signup', function (req, res, next) {
     // console.log('test')
-    res.render('signup', { title: 'Express' });
+    res.render('signup', { 
+        title: 'Express',
+        messages: req.flash()
+    });
 });
 
 router.post('/signup', function (req, res, next) {
     // console.log(req)
     // no need to check if values exist bc they are required forms
     // hash the password with bcrypt
+    if (req.body.password != req.body.confirmPassword) {
+        req.flash('error', 'Passwords do not match')
+        res.redirect('/users/signup')
+    } else {
     bcrypt.hash(req.body.password, 10)
         .then((hash) => {
             // store user details
@@ -93,18 +100,20 @@ router.post('/signup', function (req, res, next) {
             })
                 // respond with success and rout to the search page 
                 .then((user) => {
+                    req.flash('success', 'Account successfully created')
                     // res.status(201).json(user)
                     // todo redirect after submit to the results page
-                    res.redirect('/')
+                    res.redirect('/users/signup')
                 })
         })
+    }
     // res.json({message: 'success'})
 })
 
 router.get('/logout', (req, res) => {
     // tell express user logged out 
     req.session.user = null;
-    // send response of successfyl  
+    // send response of successfully  
 })
 
 router.get('/:id/favorites', (req, res) => {
