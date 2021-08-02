@@ -1,6 +1,7 @@
 // let session = require('express-session')
 // let cookie = require('cookie-parser')
 
+
 function renderDishesExternal(dishesArray) {
     let dishesHtmlArray = dishesArray.map((dish) => {
         return `
@@ -9,7 +10,7 @@ function renderDishesExternal(dishesArray) {
             <img src="${dish.image}" class="card-img-top">
             <div class="card-body">
                 <h5 class="card-title">${dish.title}</h5>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a id="recipeButton" data-recipeid="${dish.id}" href="/recipes" class="btn btn-primary">View Recipe</a>
                 <button class="btn btn-primary favorite-button" data-dishID="${dish.id}">Favorite</button>
             </div>
             </div>
@@ -26,7 +27,7 @@ let resultsBox = document.getElementById('results-box');
 searchForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const searchInputHTML = encodeURIComponent(searchBar.value)
-    fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=a4b35713784748878ce5b11f4c4293dd&ingredients=` + searchInputHTML)
+    fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=72b922abc7e54c7b9f34a9882638cd8f&ingredients=` + searchInputHTML)
         .then((res) => {
             return res.json()
         })
@@ -35,6 +36,20 @@ searchForm.addEventListener('submit', (event) => {
             resultsBox.innerHTML = renderDishesExternal(data)
         })
 
+})
+
+// event listener to store clicked recipe id into local storage
+document.addEventListener('click', (event) => {
+    if (event.target.id == 'recipeButton') {
+        let clickedRecipeJSON = localStorage.getItem('clickedRecipe');
+        let clickedRecipe = JSON.parse(clickedRecipeJSON);
+        if (clickedRecipe == null) {
+            clickedRecipe = []
+        }
+        clickedRecipe.splice(0, 1, event.target.dataset.recipeid)
+        clickedRecipeJSON = JSON.stringify(clickedRecipe)
+        localStorage.setItem('clickedRecipe', clickedRecipeJSON)
+    }
 })
 
 // favorite functionality
@@ -68,3 +83,7 @@ resultsBody.addEventListener("click", (e) => {
         //     })
     }
 })
+
+// Render Recipe information
+
+
