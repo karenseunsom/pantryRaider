@@ -15,7 +15,6 @@ router.get('/login', function (req, res, next) {
         title: 'Express',
         messages: req.flash() 
     });
-    
 });
 
 router.post('/login', function (req, res, next) {
