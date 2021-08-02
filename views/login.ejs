@@ -5,17 +5,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>
         <%- include('partials/head') %>
+        <%- include('partials/stylehead') %>
     </title>
     <script src="/javascript/login.js" async defer></script>
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1">Pantry Raider</span>
-        </div>
+    <nav class="navbar navbar-light" style="background-color: #eecc0a;">
+        <span class="navbar-brand mb-0 h1">We Got You Covered</span>
+        <a href="/" class="btn btn-light btn-lg fa-pull-right" style="margin: 10px">Home
+        </a>
     </nav>
     <!-- alerts -->
     <%- include('partials/alerts') %>
