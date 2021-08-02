@@ -33,5 +33,11 @@ router.get('/favorites', function(req, res, next) {
   res.render('favorites', { title: 'Express' });
 });
 
+router.get('/recipes', function(req, res, next) {
+  res.render('recipes', {
+    title: 'Recipes'
+  })
+});
+
 module.exports = router;
 
