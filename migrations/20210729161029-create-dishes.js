@@ -32,6 +32,18 @@ module.exports = {
       ingredient7: {
         type: Sequelize.STRING
       },
+      ingredient8: {
+        type: Sequelize.STRING
+      },
+      ingredient9: {
+        type: Sequelize.STRING
+      },
+      ingredient10: {
+        type: Sequelize.STRING
+      },
+      ingredient11: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -43,6 +55,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Dishes');
+    await queryInterface.dropTable('Dish Names');
   }
 };
