@@ -25,8 +25,8 @@ router.post('/login', function (req, res, next) {
         }
     })
         .then((user) => {
-            console.log('found user')
-            console.log(user)
+            // console.log('found user')
+            // console.log(user)
             // todo 
                 // * if user doesn't exist itll be a NULL 
                 // * make an if function that if NULL => incorrect user or/and password is incorrect
@@ -38,8 +38,10 @@ router.post('/login', function (req, res, next) {
                 .then((success) => {
                     if (success) {
                         req.session.user = user
-                        console.log('!!!!!!!!!!!!!!!!!!!!')
-                        console.log(req.session.user)
+                        // sessionStorage.setItem("currentUser", req.session.user.id);
+                        // localStorage.setItem("currentUser", req.session.user.id)
+                        // console.log('!!!!!!!!!!!!!!!!!!!!')
+                        // console.log(req.session.user.id)
                         // res.json({message: 'succesfully logged in'})
                         res.redirect('/')
                     } else {
@@ -117,12 +119,3 @@ router.get('/:id/favorites', (req, res) => {
 })
 
 module.exports = router;
-
-
-
-
-
-// TODO SignUp button goes to /users/signup
-// link the button
-// TODO Guest button routes to / 
-    // ! with login being a guest account
