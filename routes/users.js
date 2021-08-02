@@ -38,18 +38,12 @@ router.post('/login', function (req, res, next) {
                 .then((success) => {
                     if (success) {
                         req.session.user = user
-                        // sessionStorage.setItem("currentUser", req.session.user.id);
-                        // localStorage.setItem("currentUser", req.session.user.id)
-                        // console.log('!!!!!!!!!!!!!!!!!!!!')
-                        // console.log(req.session.user.id)
-                        // res.json({message: 'succesfully logged in'})
                         res.redirect('/')
                     } else {
                         // res.status(401).json({ error: 'incorrect password' })
                         req.flash('error', 'Wrong password')
                         res.redirect('/users/login')
                     }
-                    // console.log('test')
                 })
             return
         })
@@ -82,9 +76,6 @@ router.get('/signup', function (req, res, next) {
 });
 
 router.post('/signup', function (req, res, next) {
-    // console.log(req)
-    // no need to check if values exist bc they are required forms
-    // hash the password with bcrypt
     if (req.body.password != req.body.confirmPassword) {
         req.flash('error', 'Passwords do not match')
         res.redirect('/users/signup')
@@ -116,15 +107,5 @@ router.get('/logout', (req, res) => {
     // send response of successfully  
 })
 
-router.get('/:id/favorites', (req, res) => {
-    db.User.findOne({
-        where: {
-            id: req.session.User.id
-        }
-    })
-        .then((user) => {
-            res.redirect('/favorites')
-        })
-})
 
 module.exports = router;

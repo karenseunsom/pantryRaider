@@ -12,37 +12,23 @@ module.exports = {
      * }], {});
     */
     return queryInterface.bulkInsert('Ingredients', [{
-      
+      name: 'Rice',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      name: 'Beans',
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
       
+      name: 'Pico de gallo',
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
-      
-
+      name: 'Chicken',
       createdAt: new Date(),
       updatedAt: new Date()
-    }, {
-      
-
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },     {
-      name: '',
-      ingredient1: '',
-      ingredient2: '',
-      ingredient3: '',
-      ingredient4: '',
-      ingredient5: '',
-      ingredient6: '',
-      ingredient7: '',
-      ingredient8: '',
-
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }])
+    }, ])
   },
 
   down: async (queryInterface, Sequelize) => {
