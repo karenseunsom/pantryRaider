@@ -1,4 +1,4 @@
-let session = require('express-session')
+let session = require('express-session');
 let cookie = require('cookie-parser')
 
 function renderDishesExternal(dishesArray) {
@@ -45,7 +45,7 @@ resultsBody.addEventListener("click", (e) => {
         console.log(userID)
         // db.User.findOne({
         //     where: {
-        //         email: "guest@account.com"
+        //         id: 
         //     }
         // })
         //     .then((user) => {
