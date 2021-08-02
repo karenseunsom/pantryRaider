@@ -5,24 +5,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>
         <%- include('partials/head') %>
+            <%- include('partials/stylehead') %>
     </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/stylesheets/loginStyles.css">
+    <script src="../public/javascript/"></script>
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1">Pantry Raider</span>
-        </div>
+    <nav class="navbar navbar-light" style="background-color: #eecc0a;">Pantry Raider</nav>
+    <span class="navbar-brand mb-0 h1">We Got You Covered</span>
+    <a href="/" class="btn btn-light btn-lg fa-pull-right" style="margin: 10px">Home
+    </a>
     </nav>
     <!-- alerts -->
     <%- include('partials/alerts') %>
-    <div class="container">
-        <div class="d-flex login-form" style="width: 18rem;">
-            <div class="card-body">
-                <form method="POST">
-                    <div class="mb-3">
+        <div class="container">
+            <div class="d-flex login-form" style="width: 18rem;">
+                <div class="card-body">
+                    <form method="POST">
+                        <div class="mb-3">
                             <div class="form-group">
                                 <label for="email" class="form-label">Email address</label>
                                 <input type="email" class="form-control" name="email" id="email-login"
@@ -30,23 +39,24 @@
                                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with
                                     anyone else.</small>
                             </div>
-                    </div>
-                    <div class="mb-3">
-                        <div class="form-group">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" name="password" id="password-login"
-                                placeholder="Password" required>
                         </div>
-                    </div>
-                    <div>
-                        <button type="submit" class="btn btn-warning user-button">Log in</button>
-                        <a href="/users/signup" class="btn btn-warning" tabindex="-1" role="button">Sign Up</a>
-                        <a href="/users/login/guest" class="btn btn-warning" tabindex="-1" role="button">Guest Login</a>
-                    </div>
-                </form>
+                        <div class="mb-3">
+                            <div class="form-group">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" name="password" id="password-login"
+                                    placeholder="Password" required>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-warning user-button">Log in</button>
+                            <a href="/users/signup" class="btn btn-warning" tabindex="-1" role="button">Sign Up</a>
+                            <a href="/users/login/guest" class="btn btn-warning" tabindex="-1" role="button">Guest
+                                Login</a>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
 </body>
 
 </html>

@@ -12,6 +12,20 @@ router.post('/', function(req, res, next) {
   // make the db chart
   // make new line for each favorites
   console.log('im working')
+//   db.Favorite.create({
+//     firstName: req.body.firstName,
+//     lastName: req.body.lastName,
+//     email: req.body.email,
+//     password: hash
+// })
+//     // respond with success and rout to the search page 
+//     .then((user) => {
+//         req.flash('success', 'Account successfully created')
+//         // res.status(201).json(user)
+//         // todo redirect after submit to the results page
+//         res.redirect('/users/signup')
+//     })
+  
 })
 
 // GET favorites page.
