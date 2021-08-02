@@ -32,7 +32,7 @@ app.use(
 );
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(flash())
+app.use(flash());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
