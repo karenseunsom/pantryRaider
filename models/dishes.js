@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   Dish.init({
     name: DataTypes.STRING,
-    type: DataTypes.STRING,
+    apiDishId: DataTypes.INTEGER,
     // ingredients: DataTypes.STRING
   }, {
     sequelize,

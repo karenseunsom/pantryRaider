@@ -6,26 +6,33 @@ function renderDishesExternal(dishesArray) {
             <img src="${dish.image}" class="card-img-top">
             <div class="card-body">
                 <h5 class="card-title">${dish.title}</h5>
-                <a id="recipeButton" data-recipeid="${dish.id}" data-name="${dish.title}" data-img="${dish.image}" href="/recipes" class="btn btn-primary">View Recipe</a>
-                <button class="btn btn-primary favorite-button" data-dishID="${dish.id}">Favorite</button>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <form method='post' action='/dishes/add-dish'>
+                    <input type='hidden' value='${dish.id}' name='apiDishId'>
+                    <input type='hidden' value='${dish.title}' name='name'>
+                    <button type='submit'>Add to Favorite</button>
+                </form>
+               
             </div>
             </div>
-        </div>`
-    })
+        </div>`;
+    });
+    // <form method="POST" action="/favorite/${dish.id}">
     // console.log(dishesArray)
-    return dishesHtmlArray.join('')
+    return dishesHtmlArray.join("");
 }
 
-const searchBar = document.getElementById('search-bar-ingredients')
-const searchForm = document.getElementById('search-form')
+const searchBar = document.getElementById("search-bar-ingredients");
+const searchForm = document.getElementById("search-form");
+// const favBtn = document.getElementsByClassName('favorite-button')
+let resultsBox = document.getElementById("results-box");
 
-let resultsBox = document.getElementById('results-box');
-searchForm.addEventListener('submit', (event) => {
+searchForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const searchInputHTML = encodeURIComponent(searchBar.value)
     fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=72b922abc7e54c7b9f34a9882638cd8f&ingredients=` + searchInputHTML)
         .then((res) => {
-            return res.json()
+            return res.json();
         })
         .then((data) => {
             console.log(data)
@@ -74,36 +81,12 @@ document.addEventListener('click', (event) => {
 // const resultsBody = document.getElementById('results-box')
 // var favDishArraySession = []
 
-// resultsBody.addEventListener("click", (e) => {
-//     if (e.target.classList.contains("favorite-button")) {
-//         const dishID = event.target.dataset.dishid
-//         console.log(dishID)
-//         if (!favDishArraySession.includes(dishID)) {
-//             // return
-//             // console.log('test')
-//             favDishArraySession.push(dishID)
-//         }
-//         // TODO !! look into how to do a many to many table
-//         //TODO get the user.session.id
-//         const userID = user.session.id
-//         // console.log(userID)
-//         // db.User.findOne({
-//         //     where: {
-//         //         id: 
-//         //     }
-//         // })
-//         //     .then((user) => {
-//         //         if (user) {
-//         //             req.session.user = user
-//         //             // console.log(req.session.user)
-//         //             res.redirect('/')
-//         //         }
-//         //     })
-//         // todo pass userID to views folder
-//         // todo 
-//     }
-//     // console.log(favDishArray)
-//     // module.exports(favDishArraySession)
-//     localStorage.setItem('favoriteDishes', favDishArraySession)
-// })
+                    // * get userId from sessions
+                    // * get dishId from data-dishId on button
+                    // * db Create Favorite with both ID's
+//                 });
+//             });
+//         });
+// });
 
+// console.log("loaded script.js");
