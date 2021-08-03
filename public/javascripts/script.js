@@ -30,7 +30,7 @@ let resultsBox = document.getElementById("results-box");
 searchForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const searchInputHTML = encodeURIComponent(searchBar.value)
-    fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=72b922abc7e54c7b9f34a9882638cd8f&ingredients=` + searchInputHTML)
+    fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=e015566f0b9e4c8cb5307efb74303f10&ingredients=` + searchInputHTML)
         .then((res) => {
             return res.json();
         })
@@ -54,23 +54,23 @@ document.addEventListener('click', (event) => {
         clickedRecipeJSON = JSON.stringify(clickedRecipe)
         localStorage.setItem('clickedRecipe', clickedRecipeJSON)
         // recipe name
-        let clickedNameJSON = localStorage.getItem('clickedName');
-        let clickedName = JSON.parse(clickedNameJSON);
-        if (clickedName == null) {
-            clickedName = []
-        }
-        clickedName.splice(0, 1, event.target.dataset.name)
-        clickedNameJSON = JSON.stringify(clickedName)
-        localStorage.setItem('clickedName', clickedNameJSON)
-        // recipe image
-        let clickedImageJSON = localStorage.getItem('clickedImage');
-        let clickedImage = JSON.parse(clickedImageJSON);
-        if (clickedImage == null) {
-            clickedImage = []
-        }
-        clickedImage.splice(0, 1, event.target.dataset.img)
-        clickedImageJSON = JSON.stringify(clickedImage)
-        localStorage.setItem('clickedImage', clickedImageJSON)
+        // let clickedNameJSON = localStorage.getItem('clickedName');
+        // let clickedName = JSON.parse(clickedNameJSON);
+        // if (clickedName == null) {
+        //     clickedName = []
+        // }
+        // clickedName.splice(0, 1, event.target.dataset.name)
+        // clickedNameJSON = JSON.stringify(clickedName)
+        // localStorage.setItem('clickedName', clickedNameJSON)
+        // // recipe image
+        // let clickedImageJSON = localStorage.getItem('clickedImage');
+        // let clickedImage = JSON.parse(clickedImageJSON);
+        // if (clickedImage == null) {
+        //     clickedImage = []
+        // }
+        // clickedImage.splice(0, 1, event.target.dataset.img)
+        // clickedImageJSON = JSON.stringify(clickedImage)
+        // localStorage.setItem('clickedImage', clickedImageJSON)
     }
 })
 
