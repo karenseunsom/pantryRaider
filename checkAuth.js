@@ -1,13 +1,11 @@
-const { route } = require("./routes");
-
 function checkAuth(req, res, next) {
-    if (req.sessions.user) {
+    if (req.session.user) {
         next();
     } else if (req.path == '/users/login' || req.path == '/users/signup') {
         next();
     } else {
         // res.status(401).json({error: 'Not Logged In'})
-        redirect('/login')
+        res.redirect('/users/login')
     }
 }
 

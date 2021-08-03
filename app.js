@@ -44,7 +44,7 @@ store.sync();
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(flash());
 
-app.use('/', indexRouter);
+app.use('/', checkAuth,indexRouter);
 app.use('/users', usersRouter);
 app.use('/favorites', favoritesRouter)
 app.use('/dishes', dishesRouter)
