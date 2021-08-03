@@ -11,5 +11,10 @@ router.get('/favorites', function(req, res, next) {
   res.render('favorites', { title: 'Express' });
 });
 
+// GET profile page.
+router.get('/profile', function(req, res, next) {
+  res.render('profile', { title: 'Express' });
+});
+
 module.exports = router;
 
