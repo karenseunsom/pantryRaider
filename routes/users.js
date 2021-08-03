@@ -103,8 +103,13 @@ router.post('/signup', function (req, res, next) {
 router.get('/logout', (req, res) => {
     // tell express user logged out 
     req.session.user = null;
+    res.redirect('/users/login')
     // send response of successfully  
 })
 
+router.get('/test', function(req, res) {
+        db.Favorite.sync({force: true})
+        res.json("testing")
+    })
 
 module.exports = router;

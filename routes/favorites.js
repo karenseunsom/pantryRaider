@@ -8,6 +8,7 @@ router.get("/:id", function (req, res, next) {
 
 router.post("/:id", function (req, res, next) {
     // res.render("favorites", { title: "Express" });
+    
     db.User.findByPk(req.session.user.id)
     .then((user) => {
         // user.addFavorite({id:req.params.id})
@@ -17,5 +18,6 @@ router.post("/:id", function (req, res, next) {
         redirect('/')
     })
 });
+
 
 module.exports = router

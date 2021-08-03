@@ -24,15 +24,15 @@ router.get('/', function(req, res, next) {
 // })
 
 // GET favorites page.
-router.get('/favorites', function(req, res, next) {
-  res.render('favorites', { title: 'Express' });
-});
+// router.get('/favorites', function(req, res, next) {
+//   res.render('favorites', { title: 'Express' });
+// });
 
-// todo add a column in migrations that is the third party id
-// todo the spoonid
-// when someone wants to add to favorite check if one exist in the db, if not then create the dish with thrid party id
-// model.upsert with sequelize
-// use findOrCreate 
+router.get('/recipes', function(req, res, next) {
+  res.render('recipes', {
+    title: 'Recipes'
+  })
+});
 
 module.exports = router;
 

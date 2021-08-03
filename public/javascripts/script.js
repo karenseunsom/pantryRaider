@@ -7,12 +7,12 @@ function renderDishesExternal(dishesArray) {
             <div class="card-body">
                 <h5 class="card-title">${dish.title}</h5>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
-                <form method='post' action='/favorites/:id'>
-                    <input type='hidden' value='${dish.id}' name='DishId'>
-                    
+                <form method='post' action='/dishes/add-dish'>
+                    <input type='hidden' value='${dish.id}' name='apiDishId'>
+                    <input type='hidden' value='${dish.title}' name='name'>
                     <button type='submit'>Add to Favorite</button>
                 </form>
-                <button class="btn btn-primary favorite-button" data-dishID="${dish.id}">Favorite</button>
+               
             </div>
             </div>
         </div>`;
@@ -29,52 +29,64 @@ let resultsBox = document.getElementById("results-box");
 
 searchForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    const searchInputHTML = encodeURIComponent(searchBar.value);
-    fetch(
-        `https://api.spoonacular.com/recipes/findByIngredients?apiKey=a4b35713784748878ce5b11f4c4293dd&ingredients=` +
-        searchInputHTML
-    )
+    const searchInputHTML = encodeURIComponent(searchBar.value)
+    fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=72b922abc7e54c7b9f34a9882638cd8f&ingredients=` + searchInputHTML)
         .then((res) => {
             return res.json();
         })
         .then((data) => {
-            resultsBox.innerHTML = renderDishesExternal(data);
-            // adds event listener for all favorite buttons
-            document.querySelectorAll(".favorite-button").forEach(function (element) {
-                element.addEventListener("click", function (e) {
-                    e.preventDefault()
-                    // * fetch w/ POST method
-                    const dishId = e.target.dataset.dishid;
-                    // console.log(dishId)
-                    fetch(
-                        `https://api.spoonacular.com/recipes/${dishId}/information?apiKey=a4b35713784748878ce5b11f4c4293dd`
-                        // {
-                        //     method: "post",
-                        //     headers: {
-                        //         "Accept": "application/json",
-                        //         "Content-Type": "application/json",
-                        //     },
-                        //     //make sure to serialize your JSON body
-                        //     body: JSON.stringify({
-                        //         dishId: dishId,
-                        //         userId: req.session.user.id
-                        //     }),
-                        // }
-                    ).then((response) => {
-                        //do something awesome that makes the world a better place
-                        // console.log(response)
-                        return response.json()
-                    }) 
-                    .then((data) => {
-                        console.log(data)
-                    });
+            console.log(data)
+            resultsBox.innerHTML = renderDishesExternal(data)
+        })
+
+})
+
+// event listener to store clicked recipe id into local storage
+document.addEventListener('click', (event) => {
+    if (event.target.id == 'recipeButton') {
+        //recipe id
+        let clickedRecipeJSON = localStorage.getItem('clickedRecipe');
+        let clickedRecipe = JSON.parse(clickedRecipeJSON);
+        if (clickedRecipe == null) {
+            clickedRecipe = []
+        }
+        clickedRecipe.splice(0, 1, event.target.dataset.recipeid)
+        clickedRecipeJSON = JSON.stringify(clickedRecipe)
+        localStorage.setItem('clickedRecipe', clickedRecipeJSON)
+        // recipe name
+        let clickedNameJSON = localStorage.getItem('clickedName');
+        let clickedName = JSON.parse(clickedNameJSON);
+        if (clickedName == null) {
+            clickedName = []
+        }
+        clickedName.splice(0, 1, event.target.dataset.name)
+        clickedNameJSON = JSON.stringify(clickedName)
+        localStorage.setItem('clickedName', clickedNameJSON)
+        // recipe image
+        let clickedImageJSON = localStorage.getItem('clickedImage');
+        let clickedImage = JSON.parse(clickedImageJSON);
+        if (clickedImage == null) {
+            clickedImage = []
+        }
+        clickedImage.splice(0, 1, event.target.dataset.img)
+        clickedImageJSON = JSON.stringify(clickedImage)
+        localStorage.setItem('clickedImage', clickedImageJSON)
+    }
+})
+
+// favorite functionality
+//  event listener needs to be on the body of the results, to not include the buttons of Login and Favorite Recipes
+// add eventListener for a click on button
+// const dishID = event.target.dataset.dishid
+// const resultsBody = document.getElementById('results-box')
+// var favDishArraySession = []
 
                     // * get userId from sessions
                     // * get dishId from data-dishId on button
                     // * db Create Favorite with both ID's
-                });
-            });
-        });
-});
+//                 });
+//             });
+//         });
+// });
 
 // console.log("loaded script.js");
