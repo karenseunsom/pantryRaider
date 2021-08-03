@@ -2,41 +2,50 @@
 let clickedRecipeJSON = localStorage.getItem('clickedRecipe');
 let clickedRecipe = JSON.parse(clickedRecipeJSON);
 
-// Recipe name from local storage
-let clickedNameJSON = localStorage.getItem('clickedName');
-let clickedName = JSON.parse(clickedNameJSON);
+// // Recipe name from local storage
+// let clickedNameJSON = localStorage.getItem('clickedName');
+// let clickedName = JSON.parse(clickedNameJSON);
 
-// Recipe image from local storage
-let clickedImageJSON = localStorage.getItem('clickedImage');
-let clickedImage = JSON.parse(clickedImageJSON);
+// // Recipe image from local storage
+// let clickedImageJSON = localStorage.getItem('clickedImage');
+// let clickedImage = JSON.parse(clickedImageJSON);
 
-let recipeName = document.getElementById('heading');
-recipeName.innerText = clickedName
+// let recipeName = document.getElementById('heading');
+// recipeName.innerText = clickedName
 
-let recipeImg = document.getElementById('image');
-recipeImg.setAttribute('src', clickedImage)
+// let recipeImg = document.getElementById('image');
+// recipeImg.setAttribute('src', clickedImage)
 
-console.log(clickedImage)
+// console.log(clickedImage)
+
+const recipeImg = document.getElementById('image')
+const recipeHeading = document.getElementById('heading')
+const recipeSummary = document.getElementById('summary')
+const recipeType = document.getElementById('type')
+const ingList = document.getElementById('ingredientsList')
 
 
-
-
-fetch(`https://api.spoonacular.com/recipes/${clickedRecipe}/ingredientWidget.json?apiKey=a4b35713784748878ce5b11f4c4293dd`).then(res => {
+fetch(`https://api.spoonacular.com/recipes/${clickedRecipe}/information?apiKey=e015566f0b9e4c8cb5307efb74303f10`).then(res => {
     return res.json()
 }).then(data => {
     console.log(data)
-    const ingList = document.getElementById('ingredientsList')
-    ingList.innerHTML = renderIngredients(data.ingredients)
+    recipeImg.setAttribute('src', data.image)
+    recipeHeading.innerText = data.title
+    recipeSummary.innerHTML = data.summary
+    foodTypeString = data.diets.join(', ')
+    recipeType.innerText = foodTypeString
+    console.log(data.extendedIngredients)
+    ingList.innerHTML = renderIngredients(data.extendedIngredients)
 })
 
 
 
 function renderIngredients(ingArray) {
-    let ingredientsHtmlArray = ingArray.map((ing) => {
-        return `<label class="list-group-item">
-        <input class="form-check-input me-1" type="checkbox" value="">
-        ${ing.amount.us.value} ${ing.amount.us.unit} ${ing.name}
-    </label>`
+    let ingredientsHtmlArray = ingArray.map((result) => {
+        return `<li class="list-group-item">
+        ${result.originalName}
+    </li>`
     })
     return ingredientsHtmlArray.join('')
 }
+
