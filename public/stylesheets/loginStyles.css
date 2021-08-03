@@ -24,11 +24,12 @@
     flex-flow: column;
     align-items: center;
     
-    /* background-image:image(pantryRaider/public/pantry.jpeg); */
+    
 }
 .btn {
     background-color: #eecc0a;
-    
+    margin-top: 10px;
+
 }
 
 .navbar {
@@ -47,7 +48,22 @@
     
     
 }
-.otherbtns {
+.mb-3 {
+    display:flex;
+    align-items: center;
+}
+.guest_signup{
+    display:flex;
+    justify-content:space-evenly;
+}
+
+.or {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
 }

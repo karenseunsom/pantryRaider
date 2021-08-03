@@ -41,7 +41,7 @@ module.exports = {
       //   ingredient4: "spinach",
       //   ingredient5: "white wine",
       //   ingredient6: "lemon",
-      //   ingredient7: "caper",
+      //   ingredient7: "capers",
       //   ingredient8: "butter",
       //   createdAt: new Date(),
       //   updatedAt: new Date(),
@@ -52,7 +52,7 @@ module.exports = {
       //   ingredient2: "butter",
       //   ingredient3: "cream",
       //   ingredient4: "parmigiano reggiano",
-      //   ingredient5: "fettucine",
+      //   ingredient5: "fettuccine",
 
       //   createdAt: new Date(),
       //   updatedAt: new Date(),
@@ -147,7 +147,7 @@ module.exports = {
       // {
       //   name: "BBQ Baby Back Ribs, Corn and Mac N' Cheese",
       //   ingredient1: "barbecue sauce",
-      //   ingredient2: "ribs",
+      //   ingredient2: "baby back ribs",
       //   ingredient3: "corn",
       //   ingredient4: "elbow macaroni",
       //   ingredient5: "cheese",
