@@ -8,6 +8,7 @@ const checkAuth = require('./checkAuth');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+// const favoritesRouter = require('./routes/favorites')
 
 
 var app = express();
@@ -36,6 +37,7 @@ app.use(flash());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+// app.use('/favorites', favoritesRouter)
 
 
 module.exports = app;

@@ -1,20 +1,38 @@
 var express = require('express');
+const db = require('../models');
 var router = express.Router();
 
 // GET home page.
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Home' });
+  console.log(req.session.user)
 });
 
 // POST home page for the favorite button
-router.post('/', function(req, res, next) {
-  console.log('im working')
-})
+// router.post('/', function(req, res, next) {
+//   // console.log('im working')
+//   // console.log(req.session.user.id)
+//   const userSessionId = req.session.user.id
+//   db.User.findByPk(userSessionId)
+//   .then((user) => {
+//     // console.log(user)
+//     db.Favorite.create({
+//       UserId: userSessionId,
+//       DishId: '',
+//     })
+//   })
+// })
 
 // GET favorites page.
 router.get('/favorites', function(req, res, next) {
   res.render('favorites', { title: 'Express' });
 });
+
+// todo add a column in migrations that is the third party id
+// todo the spoonid
+// when someone wants to add to favorite check if one exist in the db, if not then create the dish with thrid party id
+// model.upsert with sequelize
+// use findOrCreate 
 
 module.exports = router;
 
