@@ -26,13 +26,48 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light sticky-top sticky-md-top" style="background-color: #eecc0a">
+    <nav class="navbar navbar-expand-lg navbar-light"
+            style="background-color: #eecc0a;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">We Got You Covered</a>
+                <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                    aria-controls="navbarScroll" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav me-auto my-2 my-lg-0
+                        navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page"
+                                href="#">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#"
+                                id="navbarScrollingDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Menu
+                            </a>
+                            <ul class="dropdown-menu"
+                                aria-labelledby="navbarScrollingDropdown">
+                                <li><a class="dropdown-item" href="/favorites">Favorite
+                                        Recipes</a></li>
+                                <li><a class="dropdown-item" href="/about">About
+                                        Us</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    <!-- <nav class="navbar navbar-light sticky-top sticky-md-top" style="background-color: #eecc0a">
         <span class="navbar-brand mb-0 h1">We Got You Covered</span>
         <a href="/users/logout" class="btn btn-light btn-lg fa-pull-right">Logout
         </a>
         <a href="/favorites" class="btn btn-light btn-lg fa-pull-right" style="margin: 10px">Favorite Recipes
         </a>
-    </nav>
+    </nav> -->
     <div class="container">
         <div>
             <div class="row">
