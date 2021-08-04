@@ -7,7 +7,7 @@ function renderDishesExternal(dishesArray) {
             <div class="card-body position-relative">
                 <h5 class="card-title">${dish.title}</h5>
                 <div class="options bottom-0 start-50 translate-middle-x">
-                <a href="/recipes" class="btn btn-primary btn-sm">View Receipe</a>
+                <a href="/recipes" class="btn btn-primary btn-sm" data-recipeid="${dish.id}">View Receipe</a>
                 <form method='post' action='/dishes/add-dish'>
                     <input type='hidden' value='${dish.id}' name='apiDishId'>
                     <input type='hidden' value='${dish.title}' name='name'>

@@ -21,3 +21,12 @@
   justify-content: space-evenly;
   /* position: relative; */
 }
+
+#image {
+  max-width: 300px;
+}
+
+#hatImage {
+  height: 25px;
+  width: 25px;
+}
