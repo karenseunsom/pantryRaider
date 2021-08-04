@@ -11,6 +11,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const favoritesRouter = require('./routes/favorites')
 const dishesRouter = require('./routes/dishes')
+const chefFavs = require('./routes/cheffavs')
 
 
 var app = express();
@@ -44,10 +45,11 @@ store.sync();
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(flash());
 
-app.use('/', checkAuth,indexRouter);
+app.use('/',indexRouter);
 app.use('/users', usersRouter);
 app.use('/favorites', favoritesRouter)
 app.use('/dishes', dishesRouter)
+app.use('/cheffavs', chefFavs)
 
 
 module.exports = app;
