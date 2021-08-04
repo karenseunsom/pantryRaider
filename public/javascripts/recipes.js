@@ -47,7 +47,7 @@ fetch(`https://api.spoonacular.com/recipes/${clickedRecipe}/information?apiKey=a
     } else {
     instrList.innerHTML = renderInstructions(data.analyzedInstructions[0].steps)
     }
-    cookTime.innerHTML = '<img style="width: 30px; height: 30px;"src="https://icon-library.com/images/small-clock-icon/small-clock-icon-21.jpg">' + `&nbsp${data.preparationMinutes + data.cookingMinutes} Minutes`
+    cookTime.innerHTML = '<img style="width: 30px; height: 30px;"src="https://icon-library.com/images/small-clock-icon/small-clock-icon-21.jpg">' + `&nbsp${data.readyInMinutes} Minutes`
 
 })
 
