@@ -42,7 +42,7 @@ searchForm.addEventListener("submit", (event) => {
 
 })
 
-// event listener to store clicked recipe id into local storage
+// event listener to store recipe id into local storage
 document.addEventListener('click', (event) => {
     if (event.target.id == 'recipeButton') {
         //recipe id
@@ -54,23 +54,5 @@ document.addEventListener('click', (event) => {
         clickedRecipe.splice(0, 1, event.target.dataset.recipeid)
         clickedRecipeJSON = JSON.stringify(clickedRecipe)
         localStorage.setItem('clickedRecipe', clickedRecipeJSON)
-        // recipe name
-        // let clickedNameJSON = localStorage.getItem('clickedName');
-        // let clickedName = JSON.parse(clickedNameJSON);
-        // if (clickedName == null) {
-        //     clickedName = []
-        // }
-        // clickedName.splice(0, 1, event.target.dataset.name)
-        // clickedNameJSON = JSON.stringify(clickedName)
-        // localStorage.setItem('clickedName', clickedNameJSON)
-        // // recipe image
-        // let clickedImageJSON = localStorage.getItem('clickedImage');
-        // let clickedImage = JSON.parse(clickedImageJSON);
-        // if (clickedImage == null) {
-        //     clickedImage = []
-        // }
-        // clickedImage.splice(0, 1, event.target.dataset.img)
-        // clickedImageJSON = JSON.stringify(clickedImage)
-        // localStorage.setItem('clickedImage', clickedImageJSON)
     }
 })

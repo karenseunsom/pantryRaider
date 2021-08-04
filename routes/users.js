@@ -86,7 +86,7 @@ router.post('/signup', function (req, res, next) {
                 .then((user) => {
                     req.flash('success', 'Account successfully created')
                     // todo redirect after submit to the results page
-                    res.redirect('/users/signup')
+                    res.redirect('/users/login')
                 })
         })
     }

@@ -7,6 +7,9 @@ router.get("/", function (req, res, next) {
 });
 
 
+var express = require('express');
+const db = require('../models')
+var router = express.Router();
 router.post("/:id/add",(req, res)=>{
     db.Recipe.findOrCreate({
         where: {}
