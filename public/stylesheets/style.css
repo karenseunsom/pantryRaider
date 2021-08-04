@@ -1,10 +1,25 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+#image {
+  max-width: 300px;
+}
+.card-body{
+  padding: 10px;
 }
 
-a {
-  color: #00B7FF;
+.card-title {
+  height: 50%;
+}
+
+.one-card {
+  display: flex;
+  /* width: 35vw; */
+  margin: 16px 0px;
+}
+
+.options {
+  /* margin: none; */
+  display: flex;
+  justify-content: space-evenly;
+  /* position: relative; */
 }
 
 #image {

@@ -1,18 +1,19 @@
 function renderDishesExternal(dishesArray) {
     let dishesHtmlArray = dishesArray.map((dish) => {
         return `
-        <div class="col-auto mb-3">
+        <div class="col-auto mb-3 one-card float-md-start">
             <div class="card h-100" style="width: 18rem;">
             <img src="${dish.image}" class="card-img-top">
-            <div class="card-body">
+            <div class="card-body position-relative">
                 <h5 class="card-title">${dish.title}</h5>
-                <a href="/recipes" id="recipeButton" class="btn btn-primary" data-recipeid="${dish.id}">Go somewhere</a>
+                <div class="options bottom-0 start-50 translate-middle-x">
+                <a href="/recipes" id="recipeButton" class="btn btn-primary btn-sm" data-recipeid="${dish.id}">Recipe</a>
                 <form method='post' action='/dishes/add-dish'>
                     <input type='hidden' value='${dish.id}' name='apiDishId'>
                     <input type='hidden' value='${dish.title}' name='name'>
-                    <button type='submit'>Add to Favorite</button>
+                    <button type='submit' class="btn btn-primary btn-sm">Add to Favorite</button>
                 </form>
-               
+                </div>
             </div>
             </div>
         </div>`;
@@ -73,20 +74,3 @@ document.addEventListener('click', (event) => {
         // localStorage.setItem('clickedImage', clickedImageJSON)
     }
 })
-
-// favorite functionality
-//  event listener needs to be on the body of the results, to not include the buttons of Login and Favorite Recipes
-// add eventListener for a click on button
-// const dishID = event.target.dataset.dishid
-// const resultsBody = document.getElementById('results-box')
-// var favDishArraySession = []
-
-                    // * get userId from sessions
-                    // * get dishId from data-dishId on button
-                    // * db Create Favorite with both ID's
-//                 });
-//             });
-//         });
-// });
-
-// console.log("loaded script.js");

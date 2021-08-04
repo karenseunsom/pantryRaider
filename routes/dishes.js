@@ -4,14 +4,15 @@ const db = require('../models')
 
 
 router.post("/add-dish", function (req, res, next) {
-    console.log('name', req.body.name)
+    // console.log('name', req.body.name)
     db.Dish.findOrCreate({
         where: { apiDishId: req.body.apiDishId },
         defaults: {
             apiDishId: req.body.apiDishId,
             name: req.body.name
         }
-    }).then(dish => {
+    })
+    .then(dish => {
         db.Favorite.findOrCreate({
             where: {
                 UserId: req.session.user.id,
@@ -21,12 +22,10 @@ router.post("/add-dish", function (req, res, next) {
                 UserId: req.session.user.id,
                 DishId: dish[0].dataValues.id
             }
-        }
-        )
-
-    }).then(() => {
-        res.json("Fav Added")
+        })
     })
+    res.redirect('/favorites')
+
 });
 
 
