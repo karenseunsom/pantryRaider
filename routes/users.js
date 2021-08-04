@@ -45,7 +45,7 @@ router.post('/login', function (req, res, next) {
         })
 });
 
-// create a separate route for guest loging
+// create a separate route for guest login
 router.get('/login/guest', (req, res) => {
     // find the guest user account
     db.User.findOne({

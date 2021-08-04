@@ -31,7 +31,7 @@ let resultsBox = document.getElementById("results-box");
 searchForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const searchInputHTML = encodeURIComponent(searchBar.value)
-    fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=e015566f0b9e4c8cb5307efb74303f10&ingredients=` + searchInputHTML)
+    fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=acb06f79fca841789937c148c3886ae1&ingredients=` + searchInputHTML)
         .then((res) => {
             return res.json();
         })

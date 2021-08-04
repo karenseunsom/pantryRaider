@@ -6,4 +6,10 @@ router.get("/", function (req, res, next) {
     res.render("favorites", { title: "Express" });
 });
 
-module.exports = router
+
+router.post("/:id/add",(req, res)=>{
+    db.Recipe.findOrCreate({
+        where: {}
+    })
+})
+module.exports=router
