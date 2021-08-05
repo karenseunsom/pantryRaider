@@ -18,12 +18,42 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light"
+    style="background-color: #eecc0a;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Pantry Raider</a>
+        <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+            aria-controls="navbarScroll" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0
+                navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page"
+                        href="/">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#"
+                        id="navbarScrollingDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Menu
+                    </a>
+                    <ul class="dropdown-menu"
+                        aria-labelledby="navbarScrollingDropdown">
+                        <li><a class="dropdown-item" href="/favorites">Favorite
+                                Recipes</a></li>
+                        <li><a class="dropdown-item" href="/about">About
+                                Us</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
     <div class="container">
-        <nav class="navbar navbar-light" style="background-color: #eecc0a;">
-            <span class="navbar-brand mb-0 h1"style="padding: 8px;">Pantry Raider</span>
-            <a href="/" class="btn btn-light btn-lg fa-pull-right" style="margin: 10px">Back
-            </a>
-        </nav>
         <div class="row pb-3">
             <div class="clearfix justify-content-center mt-3">
                 <img id="image" class="col-md-6 float-md-end mb-3 ms-md-3 img-fluid rounded-circle mx-auto d-block" alt="..."
@@ -48,15 +78,15 @@
             </div>
             <br><br>
             <!-- Instructions go under here  -->
-            <ul class="list-group" id="instructionsList">
+            <ul class="list-group pb-5" id="instructionsList">
 
             </ul>
         </div>
     </div>
-    <nav class="navbar navbar-light" style="background-color: #eecc0a;">
+    <nav class="navbar navbar-light fixed-bottom" style="background-color: #eecc0a;">
         <span class="navbar-brand mb-0 h1"style="padding: 5px;">Pantry Raider</span>
-        <!-- <a href="/" class="btn btn-light btn-lg fa-pull-right" style="margin: 10px">Back -->
-        </a>
+        <!-- <a href="/" class="btn btn-light btn-lg fa-pull-right" style="margin: 10px">Back
+        </a> -->
     </nav>
 </body>
 
