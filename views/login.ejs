@@ -25,7 +25,6 @@
     <!-- alerts -->
     <%- include('partials/alerts') %>
         <div class="container">
-            <div>
                 <div class="card-body">
                     <form method="POST">
                         <div class="mb-12">
@@ -35,24 +34,19 @@
                                     aria-describedby="emailHelp" placeholder="Enter email" required>
                                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with
                                     anyone else.</small>
-                                <!-- </div> -->
                             </div>
-                            <div class="mb-2">
+                            <div class="">
                                 <div class="form-group">
-                                    <label for="password" class="form-label">Password</label>
-                                    <div class="mb-9">
+                                    <label for="password" class="form-label password">Password</label>
                                         <input type="password" class="form-control" name="password" id="password-login"
                                             placeholder="Password" required>
-                                    </div>
-                                    <div class="mb-3">
                                         <button type="submit" class="btn btn-warning login">Log in</button>
-                                    </div>
                                 </div>
                             </div>
                     </form>
                 </div>
             </div>
-            <p class='or'>--OR--</p>
+            <h6 class='or'>--OR--</h6>
             <div class="guest_signup">
                 <a href="/users/signup" class="btn btn-warning" tabindex="-1" role="button">Sign Up</a>
                 <a href="/users/login/guest" class="btn btn-warning" tabindex="-1" role="button">Guest Login</a>
