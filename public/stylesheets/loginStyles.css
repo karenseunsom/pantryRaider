@@ -2,8 +2,6 @@
     display:flex;
     flex-flow: column;
     align-items: center;
-    
-    
 }
 .btn {
     background-color: #eecc0a;
@@ -60,8 +58,8 @@ body, html {
 .card-body {
     background-color: rgba(255, 255, 255, 0.82);
     padding: 10px;
-    /* width: 775px; */
-    margin-top: 60px;
+    width: 18rem;
+    /* margin-top: 60px; */
 }
 
 .or {
