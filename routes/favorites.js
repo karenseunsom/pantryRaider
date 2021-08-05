@@ -16,6 +16,9 @@ router.get("/", function (req, res, next) {
 
 
 
-
-
+router.post("/:id/add",(req, res)=>{
+    db.Recipe.findOrCreate({
+        where: {}
+    })
+})
 module.exports=router

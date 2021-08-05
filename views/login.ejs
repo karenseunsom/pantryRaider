@@ -20,18 +20,14 @@
 </head>
 
 <body class="bg">
-    <nav class="navbar navbar-light" style="background-color: #eecc0a;">Pantry Raider</nav>
-    <span class="navbar-brand mb-0 h1">We Got You Covered</span>
-    <a href="/" class="btn btn-light btn-lg fa-pull-right" style="margin: 10px">Home
-    </a>
+    <nav class="navbar navbar-light" style="background-color: #eecc0a;">Pantry Raider
     </nav>
     <!-- alerts -->
     <%- include('partials/alerts') %>
         <div class="container">
-            <div class="d-flex login-form" style="width: 18rem;">
                 <div class="card-body">
                     <form method="POST">
-                        <div class="mb-3">
+                        <div class="mb-12">
                             <div class="form-group">
                                 <label for="email" class="form-label">Email address</label>
                                 <input type="email" class="form-control" name="email" id="email-login"
@@ -39,30 +35,27 @@
                                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with
                                     anyone else.</small>
                             </div>
-                        </div>
-                        <div class="mb-3">
-                            <div class="form-group">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" name="password" id="password-login"
-                                    placeholder="Password" required>
-                                    <button type="submit" class="btn btn-warning user-button">Log in</button>
-
+                            <div class="">
+                                <div class="form-group">
+                                    <label for="password" class="form-label password">Password</label>
+                                        <input type="password" class="form-control" name="password" id="password-login"
+                                            placeholder="Password" required>
+                                        <button type="submit" class="btn btn-warning login">Log in</button>
                                 </div>
                             </div>
-                        </form>
-                    </div>
+                    </form>
                 </div>
             </div>
-            <div class='or'>--OR--</div>
+            <h6 class='or'>--OR--</h6>
             <div class="guest_signup">
-            <a href="/users/signup" class="btn btn-warning" tabindex="-1" role="button">Sign Up</a>
-            <a href="/users/login/guest" class="btn btn-warning" tabindex="-1" role="button">Guest
-                Login</a>
+                <a href="/users/signup" class="btn btn-warning" tabindex="-1" role="button">Sign Up</a>
+                <a href="/users/login/guest" class="btn btn-warning" tabindex="-1" role="button">Guest Login</a>
+            </div>
         </div>
         <!-- <div class="image">
             <img src="https://cdn.vox-cdn.com/thumbor/ebLyPNyZghyiG1TCxQJ5vI-qxvU=/0x0:1280x853/1200x900/filters:focal(538x325:742x529)/cdn.vox-cdn.com/uploads/chorus_image/image/69482129/Aerial_Image__1_.0.jpg" alt="image">
         </div> -->
-        
+
 </body>
 
 </html>
